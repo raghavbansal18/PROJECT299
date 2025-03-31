@@ -40,7 +40,7 @@ export const predefinedQueries = [
     id: 3,
     name: 'Customer Names and Contacts',
     query: 'SELECT companyName, contactName, contactTitle FROM Customers',
-    description: 'Retrieves company names and contact information',
+    description: 'Retrieves company names and contact ',
     processor: (data) => data.map(({ companyName, contactName, contactTitle }) => ({ 
       companyName, 
       contactName, 
@@ -51,7 +51,7 @@ export const predefinedQueries = [
     id: 4,
     name: 'UK Customers Ordered by Company',
     query: 'SELECT * FROM Customers WHERE country = "UK" ORDER BY companyName',
-    description: 'Retrieves UK customers sorted by company name',
+    description: 'Retrieves UK customers sorted by company',
     processor: (data) => {
       const filteredData = data.filter(customer => customer.country === 'UK');
       return filteredData.sort((a, b) => a.companyName.localeCompare(b.companyName));
