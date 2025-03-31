@@ -38,7 +38,7 @@ export const predefinedQueries = [
   },
   {
     id: 3,
-    name: 'Customer Company Names and Contacts',
+    name: 'Customer Names and Contacts',
     query: 'SELECT companyName, contactName, contactTitle FROM Customers',
     description: 'Retrieves company names and contact information',
     processor: (data) => data.map(({ companyName, contactName, contactTitle }) => ({ 
@@ -49,7 +49,7 @@ export const predefinedQueries = [
   },
   {
     id: 4,
-    name: 'Customers from UK Ordered by Company',
+    name: 'UK Customers Ordered by Company',
     query: 'SELECT * FROM Customers WHERE country = "UK" ORDER BY companyName',
     description: 'Retrieves UK customers sorted by company name',
     processor: (data) => {
