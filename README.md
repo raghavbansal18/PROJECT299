@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# SQL Playground
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-based application to run SQL queries and visualize results. This interactive query tool allows users to execute SQL queries against a sample dataset and view the results in a tabular format.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **SQL Editor**: Write and execute SQL queries with syntax highlighting
+- **Predefined Queries**: Choose from a selection of predefined SQL queries
+- **Query History**: Track and revisit previously executed queries
+- **Results Visualization**: View query results in a responsive, paginated table
+- **Mobile Responsive**: Works on both desktop and mobile devices
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (v12.0.0 or higher)
+- npm (v6.0.0 or higher)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository
+2. Navigate to the project directory
+3. Install dependencies:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Running the Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+This will launch the application on [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Building for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To create a production build:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The built files will be in the `build` directory.
 
-## Learn More
+## Sample Queries
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application comes with several predefined queries, including:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. `SELECT * FROM Customers`
+2. `SELECT * FROM Customers WHERE country = "Germany"`
+3. `SELECT companyName, contactName, contactTitle FROM Customers`
+4. `SELECT * FROM Customers WHERE country = "UK" ORDER BY companyName`
+5. `SELECT country, COUNT(*) as customerCount FROM Customers GROUP BY country ORDER BY customerCount DESC`
 
-### Code Splitting
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React
+- styled-components for styling
+- react-ace for the SQL editor
+- papaparse for CSV parsing
 
-### Analyzing the Bundle Size
+## Dataset
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application uses a sample customer dataset in CSV format, containing information about customer companies, contact details, and locations.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
