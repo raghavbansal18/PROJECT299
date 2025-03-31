@@ -88,7 +88,8 @@ const EditorWrapper = styled.div`
 `;
 
 const SQLEditor = ({ initialQuery, onExecuteQuery, isExecuting }) => {
-  const [query, setQuery] = useState(initialQuery || 'SELECT * FROM Customers');
+  const defaultQuery = 'SELECT * FROM Customers';
+  const [query, setQuery] = useState(initialQuery || defaultQuery);
   const [editorHeight, setEditorHeight] = useState('180px');
 
   useEffect(() => {
@@ -111,17 +112,19 @@ const SQLEditor = ({ initialQuery, onExecuteQuery, isExecuting }) => {
   }, []);
 
   useEffect(() => {
-    if (initialQuery && initialQuery !== query) {
+    if (initialQuery) {
       setQuery(initialQuery);
     }
-  }, [initialQuery, query]);
+  }, [initialQuery]);
 
   const handleChange = (newValue) => {
     setQuery(newValue);
   };
 
   const handleExecute = () => {
-    onExecuteQuery(query);
+    if (query.trim()) {
+      onExecuteQuery(query);
+    }
   };
   
   const handleClear = () => {
@@ -135,7 +138,7 @@ const SQLEditor = ({ initialQuery, onExecuteQuery, isExecuting }) => {
         <ButtonsContainer>
           <ClearButton 
             onClick={handleClear}
-            disabled={isExecuting || !query.trim()}
+            disabled={isExecuting}
           >
             Clear
           </ClearButton>
@@ -166,6 +169,7 @@ const SQLEditor = ({ initialQuery, onExecuteQuery, isExecuting }) => {
             enableSnippets: false,
             showLineNumbers: true,
             tabSize: 2,
+            wrap: true
           }}
         />
       </EditorWrapper>
